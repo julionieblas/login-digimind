@@ -1,16 +1,24 @@
 package nieblas.julio.digimind
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.digimind.R
+import com.google.firebase.auth.FirebaseAuth
+import  com.google.firebase.ktx.Firebase
+import  com.google.firebase.auth.ktx.auth
+
 
 class RegistroActivity : AppCompatActivity() {
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
+
+        auth = Firebase.auth
+
 
         val btn_registrar: Button = findViewById(R.id.btn_registrar)
 
@@ -20,6 +28,7 @@ class RegistroActivity : AppCompatActivity() {
     }
 
     private fun valida_registro(){
+
         val et_correo: EditText = findViewById(R.id.et_correo_reg)
         val et_contra1: EditText = findViewById(R.id.et_contra_reg)
         val et_contra2: EditText = findViewById(R.id.et_contra2_reg)
@@ -33,7 +42,8 @@ class RegistroActivity : AppCompatActivity() {
 
             if(contra1 == contra2){
 
-                //registrarFirebase()
+                registrarFirebase(correo, contra1)
+
 
             }else{
                 Toast.makeText(this, "Las contraseña no coinciden",
@@ -44,5 +54,26 @@ class RegistroActivity : AppCompatActivity() {
             Toast.makeText(this, "Ingresar datos",
                 Toast.LENGTH_SHORT).show()
         }
+    }
+    private fun registrarFirebase(email: String,password: String ){
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Sign in success, update UI with the signed-in user's information
+                   // Log.d(TAG, "createUserWithEmail:success")
+                    val user = auth.currentUser
+
+                  //  updateUI(user)
+                    Toast.makeText(baseContext, "${user.email }se ha creado correctamente",
+                        Toast.LENGTH_SHORT).show()
+                } else {
+                    // If sign in fails, display a message to the user.
+                  //  Log.w(TAG, "createUserWithEmail:failure", task.exception)
+                    Toast.makeText(baseContext, "Authentication failed.",
+                        Toast.LENGTH_SHORT).show()
+                  //  updateUI(null)
+                }
+            }
     }
 }
