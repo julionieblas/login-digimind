@@ -58,6 +58,7 @@ class RegistroActivity : AppCompatActivity() {
     private fun registrarFirebase(email: String,password: String ){
 
         auth.createUserWithEmailAndPassword(email, password)
+
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information

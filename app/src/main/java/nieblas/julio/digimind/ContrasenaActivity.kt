@@ -19,6 +19,7 @@ class ContrasenaActivity : AppCompatActivity() {
         auth = Firebase.auth
         val btn_restablecer: Button = findViewById(R.id.btn_restablecer)
 
+
         btn_restablecer.setOnClickListener{
             val et_correo: EditText = findViewById(R.id.et_correo_cont)
 
