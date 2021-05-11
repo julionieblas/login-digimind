@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "76996150031",
+    "project_id": "mydigimind-628d0",
+    "storage_bucket": "mydigimind-628d0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:76996150031:android:8931e271057c5c41e2747a",
+        "android_client_info": {
+          "package_name": "nieblas.julio.digimind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "76996150031-66vv2pvbl8jbrf4h92ifi7vruotmpgat.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCddqi-Cx1yVtyWEGlmCw_JOH4E9HojXB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "76996150031-66vv2pvbl8jbrf4h92ifi7vruotmpgat.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

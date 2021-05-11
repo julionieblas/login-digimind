@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
         btn_registrarse.setOnClickListener{
             val intent: Intent = Intent(this, RegistroActivity::class.java)
             startActivity(intent)
+
         }
 
         btn_contra.setOnClickListener{
